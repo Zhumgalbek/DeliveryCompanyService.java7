@@ -1,16 +1,26 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class DeliveryCompany {
     private String deliveryCompanyName;
-    private String customers;
-    private int pricePerKilogram;
-    private int maxCapacityPerCubicCentimeter;
+    private ArrayList<Customer> customers;
+    public static final double PRICEPERKILOGRAM = 10.0;
+    public static final double MAXCAPACITYPERCUBESANTIMETER = 100.0;
 
-    public DeliveryCompany(String deliveryCompanyName, String customers, int pricePerKilogram, int maxCapacityPerCubicCentimeter) {
+
+    public ArrayList<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(ArrayList<Customer> customers) {
+        this.customers = customers;
+    }
+
+    public DeliveryCompany(String deliveryCompanyName, ArrayList<Customer> customers) {
         this.deliveryCompanyName = deliveryCompanyName;
         this.customers = customers;
-        this.pricePerKilogram = pricePerKilogram;
-        this.maxCapacityPerCubicCentimeter = maxCapacityPerCubicCentimeter;
     }
 
     public String getDeliveryCompanyName() {
@@ -21,37 +31,19 @@ public class DeliveryCompany {
         this.deliveryCompanyName = deliveryCompanyName;
     }
 
-    public String getCustomers() {
-        return customers;
-    }
 
-    public void setCustomers(String customers) {
-        this.customers = customers;
-    }
 
-    public int getPricePerKilogram() {
-        return pricePerKilogram;
-    }
 
-    public void setPricePerKilogram(int pricePerKilogram) {
-        this.pricePerKilogram = pricePerKilogram;
-    }
-
-    public int getMaxCapacityPerCubicCentimeter() {
-        return maxCapacityPerCubicCentimeter;
-    }
-
-    public void setMaxCapacityPerCubicCentimeter(int maxCapacityPerCubicCentimeter) {
-        this.maxCapacityPerCubicCentimeter = maxCapacityPerCubicCentimeter;
-    }
 
     @Override
     public String toString() {
         return "DeliveryCompany{" +
                 "deliveryCompanyName='" + deliveryCompanyName + '\'' +
                 ", customers='" + customers + '\'' +
-                ", pricePerKilogram=" + pricePerKilogram +
-                ", maxCapacityPerCubicCentimeter=" + maxCapacityPerCubicCentimeter +
+                ", pricePerKilogram=" + PRICEPERKILOGRAM +
+                ", maxCapacityPerCubicCentimeter=" + MAXCAPACITYPERCUBESANTIMETER +
                 '}';
     }
+
+
 }
