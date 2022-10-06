@@ -6,7 +6,7 @@ public class Load {
     private int length;
     private int weight;
 
-    public Load(int height, int width, int length, int weight) {
+    public Load(int height, int width, int length) {
         this.height = height;
         this.width = width;
         this.length = length;

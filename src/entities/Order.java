@@ -4,10 +4,13 @@ public class Order {
     private double orderFee;
     private Load load;
 
-    public Order(int orderFee, Load load) {
-        this.orderFee = orderFee;
+    public Order( Load load) {
+        this.orderFee = load.getWeight()*DeliveryCompany.PRICEPERKILOGRAM;
         this.load = load;
     }
+
+
+
 
     public double getOrderFee() {
        return orderFee;

@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class DeliveryCompanyService {
     static   Scanner scannerS = new Scanner(System.in);
-    private ArrayList<DeliveryCompany> deliveryCompanies;
+    private static ArrayList<DeliveryCompany> deliveryCompanies=new ArrayList<>();
 
 
     Scanner scannerN = new Scanner(System.in);
@@ -26,13 +26,11 @@ public class DeliveryCompanyService {
             System.out.println("limit exhausted!!!");
         }
     }
-    public void createDeliveryCompany(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("write companyname: ");
-        deliveryCompanies.add(new DeliveryCompany(scanner.nextLine()));
+    public void createDeliveryCompany(String s){
+        deliveryCompanies.add(new DeliveryCompany(s));
     }
 
-    public double getTotalFee( Customer customerName) {
+    public static double getTotalFee(Customer customerName) {
         double totalFee = 0.0;
         for (DeliveryCompany company : deliveryCompanies) {
             for (Customer cust : company.getCustomers()) {
@@ -44,17 +42,18 @@ public class DeliveryCompanyService {
         }
         return totalFee;
     }
+    public void creatCustomer(Customer customer, String companyName){
+        deliveryCompanies.stream().filter(x -> x.getDeliveryCompanyName().equalsIgnoreCase(companyName)).findFirst().ifPresent(x -> x.setCustomer(customer));
+    }
 
-    public double getCompanyProfit(String companyName){
-        double profit=0.0;
-        for (DeliveryCompany com:deliveryCompanies) {
-            if(companyName.equals(com.getDeliveryCompanyName())){
-                for (Customer c: com.getCustomers()) {
-                    profit= c.getOrder().stream().map(Order::getOrderFee).reduce(0.0,Double::sum);
-                }
-            }
+    public static void getCompanyProfit(DeliveryCompany deliveryCompany) {
+        double totalProfit = 0;
+        for (Customer customer : deliveryCompany.getCustomer()) {
+            totalProfit += getTotalFee(customer);
         }
-
-        return profit;
+        System.out.println("Company total profit: "+totalProfit);
+    }
+    public ArrayList<DeliveryCompany> getCompanies(){
+        return deliveryCompanies;
     }
 }

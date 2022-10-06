@@ -30,7 +30,13 @@ public class DeliveryCompany {
     public void setDeliveryCompanyName(String deliveryCompanyName) {
         this.deliveryCompanyName = deliveryCompanyName;
     }
+    public ArrayList<Customer> getCustomer() {
+        return customers;
+    }
 
+    public void setCustomer(Customer customer) {
+        this.customers.add(customer);
+    }
 
 
 
@@ -44,6 +50,7 @@ public class DeliveryCompany {
                 ", maxCapacityPerCubicCentimeter=" + MAXCAPACITYPERCUBESANTIMETER +
                 '}';
     }
+
 
 
 }

@@ -7,7 +7,7 @@ public class Customer {
     private String customerName;
     private List<Order> orders=new ArrayList<>();
 
-    public Customer(String customerName, List<Order> orders) {
+    public Customer(String customerName) {
         this.customerName = customerName;
         this.orders = orders;
     }
