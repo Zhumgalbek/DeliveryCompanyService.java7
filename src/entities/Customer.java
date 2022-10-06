@@ -1,12 +1,15 @@
 package entities;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Customer {
     private String customerName;
-    private Order order;
+    private List<Order> orders=new ArrayList<>();
 
-    public Customer(String customerName, Order order) {
+    public Customer(String customerName, List<Order> orders) {
         this.customerName = customerName;
-        this.order = order;
+        this.orders = orders;
     }
 
     public String getCustomerName() {
@@ -17,19 +20,19 @@ public class Customer {
         this.customerName = customerName;
     }
 
-    public Order getOrder() {
-        return order;
+    public List<Order> getOrder() {
+        return orders;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void addOrder(Order order) {
+        orders.add(order);
     }
 
     @Override
     public String toString() {
         return "Customer{" +
                 "customerName='" + customerName + '\'' +
-                ", order=" + order +
+                ", orders=" + orders +
                 '}';
     }
 }

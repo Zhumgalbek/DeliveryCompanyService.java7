@@ -1,7 +1,7 @@
 package entities;
 
 public class Order {
-    private int orderFee;
+    private double orderFee;
     private Load load;
 
     public Order(int orderFee, Load load) {
@@ -9,8 +9,8 @@ public class Order {
         this.load = load;
     }
 
-    public int getOrderFee() {
-        return orderFee;
+    public double getOrderFee() {
+       return orderFee;
     }
 
     public void setOrderFee(int orderFee) {

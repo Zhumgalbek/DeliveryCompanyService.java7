@@ -18,9 +18,9 @@ public class DeliveryCompany {
         this.customers = customers;
     }
 
-    public DeliveryCompany(String deliveryCompanyName, ArrayList<Customer> customers) {
+    public DeliveryCompany(String deliveryCompanyName) {
         this.deliveryCompanyName = deliveryCompanyName;
-        this.customers = customers;
+
     }
 
     public String getDeliveryCompanyName() {
